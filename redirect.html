@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Extract query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get("user_id");
+        const movie = urlParams.get("movie");
+
+        if (userId && movie) {
+            // Redirect to quality selection page
+            window.location.href = `https://moviehub24.github.io/eagle/?user_id=${userId}&movie=${movie}`;
+        } else {
+            document.write("<h1>Invalid request</h1>");
+        }
+    </script>
 </head>
 <body>
-  <h1>
-    Hello, World!
-  </h1>
+    <p>If you are not redirected, <a id="manualLink" href="#">click here</a>.</p>
+    <script>
+        document.getElementById("manualLink").href = `https://moviehub24.github.io/eagle/?user_id=${userId}&movie=${movie}`;
+    </script>
 </body>
 </html>
